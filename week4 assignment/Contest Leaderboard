@@ -1,0 +1,5 @@
+WITH cte1 AS ( SELECT s.hacker_id, h.name, challenge_id, MAX(score) AS max_score FROM submissions s INNER JOIN hackers h ON s.hacker_id = h.hacker_id GROUP BY s.hacker_id, h.name, s.challenge_id HAVING MAX(score) > 0
+
+)
+
+SELECT hacker_id, name, SUM(max_score) AS total_score FROM cte1 GROUP BY hacker_id, name ORDER BY SUM(max_score) DESC, hacker_id ASC;
