@@ -1,0 +1,6 @@
+sqlalchemy
+pandas
+pyarrow
+fastavro
+watchdog
+schedule
